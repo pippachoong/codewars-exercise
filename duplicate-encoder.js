@@ -41,5 +41,5 @@ const duplicateEncode = (word) => {
     */
     //                                 anyDuplicates['c'] <- getting value from object
     let output = array.map(char => anyDuplicates[char]).join("")
-    // return output
+    return output
 }
