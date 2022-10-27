@@ -15,7 +15,7 @@ const highAndLow = (numbers) => {
     // sort() to get ascending order in an array
     // to sort numbers, sort((a, b) => a - b)
     const array = numbers.split(" ").sort((a, b) => a - b)
-    console.log(array);
+    // console.log(array);
 
     // loop through array and get higest number
     const HighestNumber = array[array.length - 1]
