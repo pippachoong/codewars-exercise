@@ -12,40 +12,51 @@
 // string to array
 // find index (n)
 
+const rgb = (r, g, b) => {
 
-// // step 1 
+
+
+    return `${numberToHex(r)}${numberToHex(g)}${numberToHex(b)}`
+
+}
+
 const numberToHex = (number) => {
     let array = "0123456789ABCDEF".split("")
-    // console.log(array);
-    let output = array[number]
-    // console.log(output);
-    return output
-}
 
-// // step 2 get decimal from the value input
-const decimalToHex = (number) => {
-    let remainder = (number) / 16 // e.g.15.3
-    decimalOfRemainder = ((remainder % 1).toFixed(4)) * 16
-    return decimalOfRemainder
-}
+    if (number < 0) {
+        return "00"
+    } else if (number > 255) {
+        return "FF"
+    }
 
-// step 3 - get integer fromn the value input
-const decimalToHex = (number) => {
-    let integerValue = (Math.trunc(number)) / 16
-    return integerValue
+    let firstHexIndex = Math.floor(number / 16)
+    let firstHexValue = array[firstHexIndex]
+    let secondHexIndex = number % 16
+    let secondHexValue = array[secondHexIndex]
+
+    return `${firstHexValue}${secondHexValue}`
 }
 
 
 
-// Example 1: (4253)10 = (109D) 16
+    // Decimal to hexadecimal conversion -  achieved by applying the repeated division and remainder algorithm.Simply put, the decimal number is repeatedly divided by the radix 16. In between these divisions, the remainders give the hex equivalent in reverse order.
 
-// 4253 ÷ 16 = 265.8125
-// 0.8125 * 16 = 13(Remainder 13, equivalent to D in hexadecimal)
-// 265 ÷ 16 = 16.5625
-// 0.5625 * 16 = 9(Remainder 9)
-// 16 ÷ 16 = 1(Remainder 0)
-// 1 ÷ 16 = 0.0625
-// 0.00625 * 16: 1(Remainder 1)
+    // step 2 get decimal from the value input
+    // const decimalToHex = (number) => {
+    //     let remainder = (number) / 16 // e.g.15.3
+    //     decimalOfRemainder = ((remainder % 1).toFixed(4)) * 16
+    //     return decimalOfRemainder
+    // }
 
-// Read the remainders from the most significant to the least - from bottom to top: 109D.
-// 109D the hex equivalent of(4253)10
+    // // step 3 - get integer fromn the value input
+    // const integerToHex = (number) => {
+    //     let integerValue = (Math.trunc(number)) / 16
+    //     return integerValue
+    // }
+
+
+    // if value is < 16 , step 1
+    // if value is > 16, go for step 2 & 3 until value is < 16
+    // decimalToHex is the output for hex values
+
+
