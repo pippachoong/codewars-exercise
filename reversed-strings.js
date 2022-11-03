@@ -4,7 +4,7 @@
 // 'word'   => 'drow'
 
 const solution = (str) => {
-    let stringArray = str.split("").reverse().join
+    let stringArray = str.split("").reverse().join("")
     return stringArray
 
 }
